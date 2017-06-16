@@ -12,3 +12,8 @@
   notify: "Restart ntp service"
 - name: "Allow to NTP server"
   ufw: rule=allow direction=in to_port=123 proto=udp
+- name: "Stop systemd-timesyncd service"
+  service:
+    name: systemd-timesyncd.service
+    enabled: no
+    state: stopped
